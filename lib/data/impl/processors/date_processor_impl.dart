@@ -9,17 +9,23 @@ class DateProcessorImpl extends DateProcessor {
     final tomorrow = today.add(const Duration(days: 1)).day;
     final afterTomorrow = today.add(const Duration(days: 2)).day;
 
+    var dayToday = '';
+
     if (day == today.day) {
-      return 'Сегодня';
+      dayToday = 'Сегодня';
     } else if (day == tomorrow) {
-      return 'Завтра';
+      dayToday = 'Завтра';
     } else if (day == afterTomorrow) {
-      return 'Послезавтра';
+      dayToday = 'Послезавтра';
     }
 
-    String month = '';
+    if (dayToday != '') {
+      return dayToday;
+    }
 
-    switch (today.month) {
+    var month = '';
+
+    switch (date.month) {
       case 1:
         month = 'Янв.';
         break;
@@ -59,12 +65,13 @@ class DateProcessorImpl extends DateProcessor {
     }
 
     final result = '$day, $month';
+
     return result;
   }
 
   @override
-  String getRest(String time) {
-    if (time == '2' || time == '4') {
+  String getRest(String start) {
+    if (start == '2' || start == '4') {
       return '20';
     } else {
       return '10';

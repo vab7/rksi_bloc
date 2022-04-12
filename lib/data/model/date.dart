@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
-import 'package:rksi_bloc/data/impl/processors/date_processor_impl.dart';
 import 'package:rksi_bloc/data/model/schedule.dart';
 
 part 'date.g.dart';
@@ -9,7 +8,7 @@ part 'date.g.dart';
 @HiveType(typeId: 1)
 class Date {
   @HiveField(0)
-  String date;
+  DateTime date;
 
   @HiveField(1)
   List<Schedule> schedule;
@@ -20,9 +19,7 @@ class Date {
   });
 
   factory Date.fromJson(Map<String, dynamic> json) => Date(
-        date: DateProcessorImpl().getDate(
-          DateTime.parse(json["date"]),
-        ),
+        date: DateTime.parse(json["date"]),
         schedule: List<Schedule>.from(
           json["schedule"].map(
             (item) => Schedule.fromJson(item),

@@ -14,8 +14,26 @@ class DatabaseImpl<T> extends Database<T> {
         final list = box.get(key) as List<dynamic>;
 
         if (type == Date) {
-          final values = list.map((e) => e as Date).toList();
-          return values as T;
+          final today = DateTime.now();
+          final values = list.map(
+            (e) {
+              final date = (e as Date).date;
+
+              if (date.isAfter(today) || date.day == today.day) {
+                return e;
+              }
+            },
+          ).toList();
+
+          var newValues = <Date>[];
+
+          for (var date in values) {
+            if (date != null) {
+              newValues.add(date);
+            }
+          }
+
+          return newValues as T;
         }
 
         return list as T;

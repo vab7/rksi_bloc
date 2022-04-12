@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:rksi_bloc/data/impl/processors/date_processor_impl.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/widgets/style/text_style.dart';
 
 class DateItem extends StatelessWidget {
-  final String date;
+  final DateTime date;
 
   const DateItem({Key? key, required this.date}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final day = DateProcessorImpl().getDate(date);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -19,7 +21,7 @@ class DateItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Text(
-            date,
+            day,
             style: dateTextStyle,
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
-import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
 import 'package:rksi_bloc/data/impl/repository/connectivity_impl.dart';
 import 'package:rksi_bloc/data/impl/repository/repository_impl.dart';
 

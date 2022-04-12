@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class TimeProcessor {
-  Color colorState(int day, String start, String end);
+  Color colorState(int day);
 }

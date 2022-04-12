@@ -65,11 +65,8 @@ class RepositoryBloc extends Bloc<RepositoryEvent, RepositoryState> {
         type = _item![0];
         final index = _item![1];
 
-        _dates = await RepositoryImpl<Date>().getRepository(
-          type: '=$type',
-          item: '&item',
-          index: '=$index',
-        );
+        _dates = await RepositoryImpl<Date>()
+            .getRepository(type: '=$type', item: '&item', index: '=$index');
 
         _saveData();
 

@@ -5,7 +5,7 @@ import 'package:rksi_bloc/resources/color/color.dart';
 
 class TimeProcessorImpl extends TimeProcessor {
   @override
-  Color colorState(int day, String start, String end) {
+  Color colorState(int day) {
     var today = DateTime.now();
 
     if (day == today.day) {

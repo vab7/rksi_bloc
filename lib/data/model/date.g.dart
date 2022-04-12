@@ -17,7 +17,7 @@ class DateAdapter extends TypeAdapter<Date> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Date(
-      date: fields[0] as String,
+      date: fields[0] as DateTime,
       schedule: (fields[1] as List).cast<Schedule>(),
     );
   }
