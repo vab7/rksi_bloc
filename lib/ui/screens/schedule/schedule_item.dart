@@ -5,10 +5,11 @@ import 'package:rksi_bloc/bloc/schedule/schedule_bloc.dart';
 import 'package:rksi_bloc/data/model/schedule.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/constants/constants.dart';
-import 'package:rksi_bloc/resources/widgets/style/text_style.dart';
 import 'package:rksi_bloc/ui/screens/schedule/text/door.dart';
 import 'package:rksi_bloc/ui/screens/schedule/text/group.dart';
-import 'package:rksi_bloc/ui/screens/schedule/widgets/left_linear_gradient.dart';
+import 'package:rksi_bloc/ui/screens/schedule/text/rest.dart';
+import 'package:rksi_bloc/ui/screens/schedule/text/start.dart';
+import 'package:rksi_bloc/ui/screens/schedule/gradient/left_linear_gradient.dart';
 import 'package:rksi_bloc/ui/screens/schedule/text/subject.dart';
 
 class ScheduleItem extends StatelessWidget {
@@ -42,40 +43,11 @@ class ScheduleItem extends StatelessWidget {
                     Subject(sub: schedule.sub),
                     Group(group: group),
                     Door(door: schedule.door),
-                    Row(
-                      children: [
-                        Text(
-                          '${schedule.start} - ${schedule.end}',
-                          style: TextStyle(
-                            color: color,
-                            fontSize: fontSize,
-                          ),
-                        ),
-                      ],
-                    ),
+                    Start(
+                        start: schedule.start, end: schedule.end, color: color)
                   ],
                 ),
-                Positioned(
-                  bottom: 2,
-                  right: 0,
-                  child: Row(
-                    children: [
-                      Text(
-                        schedule.rest,
-                        style: const TextStyle(
-                          color: secondaryText,
-                          fontSize: fontSize,
-                        ),
-                      ),
-                      const SizedBox(width: 1),
-                      const Icon(
-                        Icons.schedule,
-                        size: fontSize,
-                        color: secondaryText,
-                      ),
-                    ],
-                  ),
-                ),
+                Rest(rest: schedule.rest),
               ],
             ),
           ),
