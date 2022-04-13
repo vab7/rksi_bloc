@@ -1,9 +1,14 @@
 import 'dart:async';
 
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
 
-class ScheduleProcessorImpl extends ChangeNotifier {
+part 'schedule_event.dart';
+part 'schedule_state.dart';
+
+class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   var color = primary;
 
   Timer? _timer;
@@ -14,11 +19,11 @@ class ScheduleProcessorImpl extends ChangeNotifier {
 
   final _second = const Duration(seconds: 1);
 
-  ScheduleProcessorImpl({
+  ScheduleBloc({
     required String startLesson,
     required String endLesson,
     required String date,
-  }) {
+  }) : super(ScheduleInitial()) {
     final dateLesson = date.split('-').map((e) => int.parse(e)).toList();
     final dayLesson = dateLesson[2];
     final monthLesson = dateLesson[1];
@@ -29,26 +34,38 @@ class ScheduleProcessorImpl extends ChangeNotifier {
       _start = DateTime.parse('$date $startLesson');
       _end = DateTime.parse('$date $endLesson');
 
-      timer();
+      _timerSchedule();
 
       _timer = Timer.periodic(_second, (_) {
         _now = DateTime.now();
-        timer();
+        _timerSchedule();
       });
+    }
+
+    on<LoadSchedule>((event, emit) {
+      emit(ScheduleInitial());
+
+      emit(LoadedSchedule(color));
+    });
+  }
+
+  void _timerSchedule() {
+    if (!_colorIs(activity) && _now.isAfter(_start!) && _now.isBefore(_end!)) {
+      color = activity;
+      _setState();
+    } else if (color != secondaryText && _now.isAfter(_end!)) {
+      color = secondaryText;
+      _setState();
+
+      if (_timer != null) _timer!.cancel();
     }
   }
 
-  void timer() {
-    if (_now.isAfter(_start!) && _now.isBefore(_end!)) {
-      color = activity;
-      notifyListeners();
-    } else if (_now.isAfter(_end!)) {
-      color = secondaryText;
-      notifyListeners();
-      if (_timer != null) _timer!.cancel();
-    } else {
-      color = third;
-      notifyListeners();
+  void _setState() {
+    if (state != ScheduleInitial()) {
+      add(LoadSchedule());
     }
   }
+
+  bool _colorIs(Color color) => this.color == color;
 }
