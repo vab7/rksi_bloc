@@ -15,15 +15,13 @@ class DatabaseImpl<T> extends Database<T> {
 
         if (type == Date) {
           final today = DateTime.now();
-          final values = list.map(
-            (e) {
-              final date = (e as Date).date;
+          final values = list.map((e) {
+            final date = (e as Date).date;
 
-              if (date.isAfter(today) || date.day == today.day) {
-                return e;
-              }
-            },
-          ).toList();
+            if (date.isAfter(today) || date.day == today.day) {
+              return e;
+            }
+          }).toList();
 
           var newValues = <Date>[];
 

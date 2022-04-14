@@ -7,13 +7,13 @@ abstract class RepositoryEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadFromApiEvent extends RepositoryEvent {
+class LoadFromApi extends RepositoryEvent {
   final String result;
-  const LoadFromApiEvent(this.result);
+  const LoadFromApi(this.result);
 }
 
-class LoadFromDatabaseEvent extends RepositoryEvent {}
+class LoadFromDatabase extends RepositoryEvent {}
 
 class InitialEvent extends RepositoryEvent {}
 
-class NoInternetEvent extends RepositoryEvent {}
+class NoInternet extends RepositoryEvent {}

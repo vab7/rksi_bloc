@@ -21,7 +21,7 @@ class SearchAction extends StatelessWidget {
 
         if (result != null && result.isNotEmpty) {
           if (connectivity != ConnectivityResult.none) {
-            context.read<RepositoryBloc>().add(LoadFromApiEvent(result));
+            context.read<RepositoryBloc>().add(LoadFromApi(result));
           }
         }
       },

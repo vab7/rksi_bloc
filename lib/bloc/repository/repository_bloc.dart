@@ -27,14 +27,14 @@ class RepositoryBloc extends Bloc<RepositoryEvent, RepositoryState> {
           type = await _getTypeFromDatabase();
 
           if (_dates != null && type != null) {
-            add(LoadFromDatabaseEvent());
+            add(LoadFromDatabase());
           } else {
-            add(NoInternetEvent());
+            add(NoInternet());
 
             ConnectivityImpl().connectivityStream.stream.listen(
               (event) {
                 if (event != ConnectivityResult.none) {
-                  add(const LoadFromApiEvent(firstGroup));
+                  add(const LoadFromApi(firstGroup));
                 }
               },
             );
@@ -43,20 +43,20 @@ class RepositoryBloc extends Bloc<RepositoryEvent, RepositoryState> {
           _item = await _getItemFromDatabase();
 
           if (_item == null) {
-            add(const LoadFromApiEvent(firstGroup));
+            add(const LoadFromApi(firstGroup));
           } else {
-            add(LoadFromApiEvent('${_item![0]}=${_item![1]}'));
+            add(LoadFromApi('${_item![0]}=${_item![1]}'));
           }
         }
       },
     );
 
-    on<LoadFromDatabaseEvent>((event, emit) {
+    on<LoadFromDatabase>((event, emit) {
       _setTitle();
       emit(LoadedState(_dates!));
     });
 
-    on<LoadFromApiEvent>(
+    on<LoadFromApi>(
       (event, emit) async {
         emit(LoadingState());
 
@@ -76,7 +76,7 @@ class RepositoryBloc extends Bloc<RepositoryEvent, RepositoryState> {
       },
     );
 
-    on<NoInternetEvent>((event, emit) => emit(NoInternetState()));
+    on<NoInternet>((event, emit) => emit(NoInternetState()));
   }
 
   void _saveData() {

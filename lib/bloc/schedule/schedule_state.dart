@@ -7,7 +7,7 @@ abstract class ScheduleState extends Equatable {
   List<Object> get props => [];
 }
 
-class ScheduleInitial extends ScheduleState {}
+class LoadingState extends ScheduleState {}
 
 class LoadedSchedule extends ScheduleState {
   final Color color;

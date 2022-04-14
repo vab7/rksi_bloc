@@ -23,7 +23,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
     required String startLesson,
     required String endLesson,
     required String date,
-  }) : super(ScheduleInitial()) {
+  }) : super(LoadingState()) {
     final dateLesson = date.split('-').map((e) => int.parse(e)).toList();
     final dayLesson = dateLesson[2];
     final monthLesson = dateLesson[1];
@@ -43,7 +43,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
     }
 
     on<LoadSchedule>((event, emit) {
-      emit(ScheduleInitial());
+      emit(LoadingState());
 
       emit(LoadedSchedule(color));
     });
@@ -53,7 +53,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
     if (!_colorIs(activity) && _now.isAfter(_start!) && _now.isBefore(_end!)) {
       color = activity;
       _setState();
-    } else if (color != secondaryText && _now.isAfter(_end!)) {
+    } else if (!_colorIs(secondaryText) && _now.isAfter(_end!)) {
       color = secondaryText;
       _setState();
 
@@ -62,7 +62,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   }
 
   void _setState() {
-    if (state != ScheduleInitial()) {
+    if (state != LoadingState()) {
       add(LoadSchedule());
     }
   }
