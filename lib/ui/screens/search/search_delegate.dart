@@ -37,53 +37,56 @@ class SearchGroupsDelegate extends SearchDelegate<String> {
         child: BlocBuilder<SearchBloc, SearchState>(
           builder: (context, state) {
             if (state is LoadingState) {
-              return loadingWidget();
+              return const LoadingWidget();
             }
             if (state is LoadedState) {
-              final bloc = context.watch<SearchBloc>();
-              final names = bloc.getNames(query);
-              return ListView.builder(
-                itemCount: names.length,
-                physics: const BouncingScrollPhysics(),
-                keyboardDismissBehavior:
-                    ScrollViewKeyboardDismissBehavior.onDrag,
-                itemBuilder: (context, index) {
-                  final name = names[index].split('#');
-                  bloc.getSuggestionsText(names[index], query);
-                  return ListTile(
-                    onTap: () => close(context, name[1]),
-                    title: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: RichText(
-                        text: TextSpan(
-                          text: bloc.queryText,
-                          style: const TextStyle(
-                            color: black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: bloc.nameText,
-                              style: TextStyle(
-                                color: Colors.grey.shade400,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
+              return loadedState(context);
             }
             if (state is NoInternetState) {
-              return noInternetWidget();
+              return const NoInternetWidget();
             }
             return Container();
           },
         ),
       ),
+    );
+  }
+
+  Widget loadedState(context) {
+    final bloc = context.watch<SearchBloc>();
+    final names = bloc.getNames(query);
+    return ListView.builder(
+      itemCount: names.length,
+      physics: const BouncingScrollPhysics(),
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      itemBuilder: (context, index) {
+        final name = names[index].split('#');
+        bloc.getSuggestionsText(names[index], query);
+        return ListTile(
+          onTap: () => close(context, name[1]),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: RichText(
+              text: TextSpan(
+                text: bloc.queryText,
+                style: const TextStyle(
+                  color: black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+                children: [
+                  TextSpan(
+                    text: bloc.nameText,
+                    style: TextStyle(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -16,12 +16,12 @@ class RepositoryUI extends StatelessWidget {
       child: BlocBuilder<RepositoryBloc, RepositoryState>(
         builder: (context, state) {
           if (state is LoadingState) {
-            return loadingWidget();
+            return const LoadingWidget();
           }
           if (state is LoadedState) {
             return DateList(date: state.date);
           }
-          return noInternetWidget();
+          return const NoInternetWidget();
         },
       ),
     );

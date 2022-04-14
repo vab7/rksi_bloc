@@ -2,7 +2,7 @@
     package="com.example.rksi_bloc">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="rksi_bloc"
+        android:label="РКСИ"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
