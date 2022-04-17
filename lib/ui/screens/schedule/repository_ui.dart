@@ -4,7 +4,7 @@ import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/widgets/loading_widget.dart';
 import 'package:rksi_bloc/resources/widgets/no_internet_widget.dart';
-import 'package:rksi_bloc/ui/screens/date/date_list.dart';
+import 'package:rksi_bloc/ui/screens/schedule/date/date_list.dart';
 
 class RepositoryUI extends StatelessWidget {
   const RepositoryUI({Key? key}) : super(key: key);

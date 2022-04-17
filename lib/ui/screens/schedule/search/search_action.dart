@@ -2,7 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
-import 'package:rksi_bloc/ui/screens/search/search_delegate.dart';
+import 'package:rksi_bloc/ui/screens/schedule/search/search_delegate.dart';
 
 class SearchAction extends StatelessWidget {
   const SearchAction({Key? key}) : super(key: key);

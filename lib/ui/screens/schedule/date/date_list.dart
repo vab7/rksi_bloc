@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rksi_bloc/data/model/date.dart';
-import 'package:rksi_bloc/ui/screens/date/date_item.dart';
-import 'package:rksi_bloc/ui/screens/schedule/schedule_list.dart';
+import 'package:rksi_bloc/ui/screens/schedule/date/date_item.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/schedule_list.dart';
 
 class DateList extends StatelessWidget {
   final List<Date> date;

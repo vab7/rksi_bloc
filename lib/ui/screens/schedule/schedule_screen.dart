@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
-import 'package:rksi_bloc/ui/screens/repository_ui.dart';
-import 'package:rksi_bloc/ui/screens/search/search_action.dart';
+import 'package:rksi_bloc/ui/screens/schedule/repository_ui.dart';
+import 'package:rksi_bloc/ui/screens/schedule/search/search_action.dart';
 
 class ScheduleScreen extends StatelessWidget {
   const ScheduleScreen({Key? key}) : super(key: key);

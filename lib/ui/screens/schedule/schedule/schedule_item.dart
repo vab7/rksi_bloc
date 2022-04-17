@@ -5,12 +5,12 @@ import 'package:rksi_bloc/bloc/schedule/schedule_bloc.dart';
 import 'package:rksi_bloc/data/model/schedule.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/constants/constants.dart';
-import 'package:rksi_bloc/ui/screens/schedule/text/door.dart';
-import 'package:rksi_bloc/ui/screens/schedule/text/group.dart';
-import 'package:rksi_bloc/ui/screens/schedule/text/rest.dart';
-import 'package:rksi_bloc/ui/screens/schedule/text/start.dart';
-import 'package:rksi_bloc/ui/screens/schedule/gradient/left_linear_gradient.dart';
-import 'package:rksi_bloc/ui/screens/schedule/text/subject.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/gradient/left_linear_gradient.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/text/door.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/text/group.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/text/rest.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/text/start.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/text/subject.dart';
 
 class ScheduleItem extends StatelessWidget {
   final Schedule schedule;

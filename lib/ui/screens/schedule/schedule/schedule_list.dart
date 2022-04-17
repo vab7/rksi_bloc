@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
 import 'package:rksi_bloc/bloc/schedule/schedule_bloc.dart';
 import 'package:rksi_bloc/data/model/date.dart';
-import 'package:rksi_bloc/ui/screens/schedule/schedule_item.dart';
+import 'package:rksi_bloc/ui/screens/schedule/schedule/schedule_item.dart';
 
 class ScheduleList extends StatelessWidget {
   final Date date;
