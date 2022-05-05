@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
+import 'package:rksi_bloc/data/impl/processors/sort_processor_impl.dart';
 import 'package:rksi_bloc/data/model/schedule.dart';
 
 part 'date.g.dart';
@@ -28,8 +29,14 @@ class Date {
       );
 }
 
-List<Date> dateFromJson(String str) => List<Date>.from(
-      json.decode(str).map(
-            (item) => Date.fromJson(item),
-          ),
-    );
+List<Date> dateFromJson(String str) {
+  var dates = List<Date>.from(
+    json.decode(str).map(
+          (item) => Date.fromJson(item),
+        ),
+  );
+
+  SortProcessorImpl().sortDate(dates);
+
+  return dates;
+}
