@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rksi_bloc/data/impl/processors/date_processor_impl.dart';
 import 'package:rksi_bloc/resources/color/color.dart';
-import 'package:rksi_bloc/resources/widgets/style/text_style.dart';
 
 class DateItem extends StatelessWidget {
   final DateTime date;
@@ -22,7 +21,9 @@ class DateItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Text(
             day,
-            style: dateTextStyle,
+            style: const TextStyle(
+              color: white,
+            ),
           ),
         ),
       ),

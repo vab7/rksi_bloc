@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rksi_bloc/bloc/repository/repository_bloc.dart';
 import 'package:rksi_bloc/bloc/schedule/schedule_bloc.dart';
 import 'package:rksi_bloc/data/model/schedule.dart';
-import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/constants/constants.dart';
 import 'package:rksi_bloc/ui/screens/schedule/schedule/gradient/left_linear_gradient.dart';
 import 'package:rksi_bloc/ui/screens/schedule/schedule/text/door.dart';
@@ -29,8 +28,9 @@ class ScheduleItem extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: white,
-              border: Border.all(color: secondary),
+              border: Border.all(
+                color: const Color.fromARGB(40, 141, 141, 141),
+              ),
               borderRadius: const BorderRadius.all(Radius.circular(radius)),
             ),
             padding:
@@ -44,7 +44,10 @@ class ScheduleItem extends StatelessWidget {
                     Group(group: group),
                     Door(door: schedule.door),
                     Start(
-                        start: schedule.start, end: schedule.end, color: color)
+                      start: schedule.start,
+                      end: schedule.end,
+                      color: color,
+                    )
                   ],
                 ),
                 Rest(rest: schedule.rest),

@@ -12,3 +12,6 @@ const itemKey = 'item_key';
 
 const typeBox = 'type_box';
 const typeKey = 'type_key';
+
+const themeBox = 'theme_box';
+const themeKey = 'theme_key';

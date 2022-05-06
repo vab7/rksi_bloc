@@ -10,7 +10,10 @@ class Door extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 3.0),
-      child: Text('Кабинет $door', style: itemTextStyle),
+      child: Text(
+        'Кабинет $door',
+        style: itemTextStyle,
+      ),
     );
   }
 }

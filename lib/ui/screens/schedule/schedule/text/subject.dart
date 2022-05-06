@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rksi_bloc/resources/widgets/style/text_style.dart';
 
 class Subject extends StatelessWidget {
   final String sub;
@@ -10,7 +9,10 @@ class Subject extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       sub,
-      style: subjectTextStyle,
+      style: const TextStyle(
+        fontSize: 22,
+        height: 1,
+      ),
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
     );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rksi_bloc/bloc/search/search_bloc.dart';
 import 'package:rksi_bloc/data/impl/repository/repository_impl.dart';
-import 'package:rksi_bloc/resources/color/color.dart';
 import 'package:rksi_bloc/resources/widgets/loading_widget.dart';
 import 'package:rksi_bloc/resources/widgets/no_internet_widget.dart';
 
@@ -57,16 +56,16 @@ class SearchGroupsDelegate extends SearchDelegate<String> {
                       child: RichText(
                         text: TextSpan(
                           text: bloc.queryText,
-                          style: const TextStyle(
-                            color: black,
+                          style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
+                            color: Theme.of(context).primaryColor,
                           ),
                           children: [
                             TextSpan(
                               text: bloc.nameText,
-                              style: TextStyle(
-                                color: Colors.grey.shade400,
+                              style: const TextStyle(
+                                color: Color.fromARGB(121, 128, 128, 128),
                               ),
                             ),
                           ],

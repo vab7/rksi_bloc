@@ -1,7 +1,7 @@
 name: rksi_bloc
 description: rksi schedule
 
-version: 0.1.5+1
+version: 0.2.0+1
 
 environment:
   sdk: ">=2.17.0-182.2.beta <3.0.0"
@@ -18,6 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons:
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +29,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
