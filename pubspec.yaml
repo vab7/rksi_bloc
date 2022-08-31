@@ -1,33 +1,33 @@
 name: rksi_bloc
 description: rksi schedule
 
-version: 0.2.0+1
+version: 0.0.1+1
 
 environment:
-  sdk: ">=2.17.0-182.2.beta <3.0.0"
+   sdk: ">=2.17.0-182.2.beta <3.0.0"
 
 dependencies:
-  flutter_bloc:
-  bloc:
-  equatable:
-  connectivity_plus:
-  http:
-  google_fonts:
-  hive:
-  hive_flutter:
-  flutter:
-    sdk: flutter
-  cupertino_icons:
-  flutter_svg:
+   flutter_bloc:
+   bloc:
+   equatable:
+   connectivity_plus:
+   http:
+   google_fonts:
+   hive:
+   hive_flutter:
+   flutter:
+      sdk: flutter
+   cupertino_icons:
+   flutter_svg:
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints:
-  build_runner:
-  hive_generator:
+   flutter_test:
+      sdk: flutter
+   flutter_lints:
+   build_runner:
+   hive_generator:
 
 flutter:
-  uses-material-design: true
-  assets:
-    - assets/
+   uses-material-design: true
+   assets:
+      - assets/

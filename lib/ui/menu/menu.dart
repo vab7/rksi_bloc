@@ -85,7 +85,7 @@ class _MenuState extends State<Menu> {
               ),
               const Positioned(
                 child: Text(
-                  'Версия 0.2.0 (11)',
+                  'Версия 0.0.1 (1)',
                   style: itemTextStyle,
                 ),
                 bottom: 0,
